@@ -1,13 +1,7 @@
 import React from "react";
-import LikeButton from "./likeButton";
+import LikeButton from ".";
 import styled from "styled-components";
-import { createGlobalStyle } from "styled-components";
-
-const GlobalStyles = createGlobalStyle`
-body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-`;
+import GlobalStyles from "../theme/GlobalStyles";
 
 const pizza = { name: "pizza", icon: "🍕" };
 const chocolate = { name: "chocolate", icon: "🍫" };
@@ -24,21 +18,16 @@ const userTopics = [
     topics: [pizza, chocolate, beer, computers],
   },
   {
-    user: "alex.xmde2@gmail.com",
+    user: "johndoe-39",
+    topics: [pizza, chocolate, beer, computers],
+  },
+  {
+    user: "admin@rockcontent.com",
     topics: [pizza, chocolate, beer, computers],
   },
 
   {
-    user: "toninho salsicho",
-    topics: [pizza, chocolate, beer, computers],
-  },
-  {
-    user: "alex.xmde3@gmail.com",
-    topics: [pizza, chocolate, beer, computers],
-  },
-
-  {
-    user: "Zezinho",
+    user: "sarah-connor",
     topics: [pizza, chocolate, beer, computers],
   },
 ];
@@ -62,26 +51,19 @@ const Topic = styled.span`
   margin-right: 12px;
 `;
 
-const RefreshButton = styled.button`
-  background-color: #254244;
-  color: white;
-  outline: none;
-  border: none;
-  width: 120px;
-  height: 50px;
+const User = styled.h2`
+  font-size: 16px;
 `;
 
 const Presentation = () => {
-  const refresh = () => window.location.reload();
   return (
     <Container>
-      <RefreshButton onClick={refresh}>Refresh</RefreshButton>
       <Dashboard>
         <GlobalStyles />
         {userTopics.map(({ user, topics }) => {
           return (
             <UserContainer>
-              <h2>{user}</h2>
+              <User>{user}</User>
               {topics.map((topic) => (
                 <TopicContainer>
                   <Topic>{topic.icon}</Topic>

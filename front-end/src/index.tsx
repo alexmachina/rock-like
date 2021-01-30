@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App topic="ufc-3" username="alex.xmde@gmail.com" />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

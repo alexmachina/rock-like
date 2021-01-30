@@ -10,7 +10,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "*": ["node_modules/*", "src/types/*"]
+      "*": ["node_modules/*"]
     },
     "skipLibCheck": true,
     "esModuleInterop": true,

@@ -11,6 +11,7 @@ type IUseUserLikes = (
   unlike: () => Promise<void>;
 };
 
+const baseUrl = `${process.env.REACT_APP_LIKE_API_BASE_URL}`;
 const useUserLikes: IUseUserLikes = ({ user, topic, live }) => {
   const [liked, setLiked] = useState(false);
   const [likes, setLikes] = useState(0);
@@ -19,9 +20,7 @@ const useUserLikes: IUseUserLikes = ({ user, topic, live }) => {
   useEffect(() => {
     setLoading(true);
     const getLikes = async () => {
-      const response = await fetch(
-        `http://localhost:3001/${topic}?user=${user}`
-      );
+      const response = await fetch(`${baseUrl}/${topic}?user=${user}`);
       const userLikes = await response.json();
       const { likes, liked } = userLikes;
 
@@ -32,14 +31,14 @@ const useUserLikes: IUseUserLikes = ({ user, topic, live }) => {
 
     if (live) {
       getLikes();
-      setInterval(getLikes, 7000);
+      setInterval(getLikes, 4000);
     } else {
       getLikes();
     }
-  }, []);
+  }, [live, topic, user]);
 
   const like = async () => {
-    await fetch(`http://localhost:3001/${topic}?user=${user}`, {
+    await fetch(`${baseUrl}/${topic}?user=${user}`, {
       method: "POST",
     });
     setLikes((prevLikes) => prevLikes + 1);
@@ -47,7 +46,7 @@ const useUserLikes: IUseUserLikes = ({ user, topic, live }) => {
   };
 
   const unlike = async () => {
-    await fetch(`http://localhost:3001/${topic}/?user=${user}`, {
+    await fetch(`${baseUrl}/${topic}/?user=${user}`, {
       method: "DELETE",
     });
 
