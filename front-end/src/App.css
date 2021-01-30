@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+}
+
+.like-container {
+  width: 32px;
+  height: 32px;
+}
+
+.like-count {
+  margin-left: 4px;
+}

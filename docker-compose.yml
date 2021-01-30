@@ -1,0 +1,34 @@
+version: '3'
+services:
+  like-frontend:
+    container_name: like-frontend
+    build: ./front-end
+    ports:
+      - "3000:80"
+    networks:
+      - like-network
+  like-rest-api:
+    container_name: like-api
+    build: ./rest-api
+    ports:
+      - "3001:3001"
+    networks:
+      - like-network
+    environment:
+      - MONGO_CONNECTION_STRING=mongodb://liker:swordfish@like-mongo:27017/likes
+  like-mongo:
+    container_name: like-mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: likes
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - like-network
+networks:
+  like-network:
+    name: like-network

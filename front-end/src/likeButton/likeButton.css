@@ -1,0 +1,19 @@
+.container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+}
+
+.like-container {
+  color: #3a86ff;
+  width: 32px;
+  height: 32px;
+}
+
+.like-count {
+  margin-left: 4px;
+  color: #252525;
+  font-size: 18px;
+}
