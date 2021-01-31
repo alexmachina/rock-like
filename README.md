@@ -100,6 +100,6 @@ Here are features that are important, but couldn't make it to the project yet.
 
 - It would be pretty welcoming if the like button's visuals could be customized.
 
-### 8. Deploy do CDN and make it non-react dependant
+### 8. Deploy to CDN and make it non-react dependant
 
 - The `<LikeButton>` can have a version deployed that is deployed to a CDN and when required, embedded on an specific element on the page. By doint this, clients that don't use React and even non-developers can integrate the like button on their websites. A behavior similar to https://developers.facebook.com/docs/plugins/like-button/
