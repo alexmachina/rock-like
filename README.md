@@ -50,6 +50,8 @@ cd ~/rock-like
 docker-compose up --build -d
 ```
 
+open `localhost:3000` on your browser.
+
 # Architecture
 
 Both the front-end and the back-end are writter in TypeScript.
